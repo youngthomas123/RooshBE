@@ -1,4 +1,4 @@
-package com.projectsem3.rooshapi.repositories;
+package com.projectsem3.rooshapi.repositories.interfaces;
 
 import java.util.List;
 import java.util.UUID;

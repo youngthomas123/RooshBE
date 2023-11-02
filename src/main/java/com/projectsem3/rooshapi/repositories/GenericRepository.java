@@ -4,6 +4,7 @@ import com.projectsem3.rooshapi.data.GenericDatalayer;
 import com.projectsem3.rooshapi.domain.GenericClass;
 import com.projectsem3.rooshapi.mapper.GenericConverter;
 import com.projectsem3.rooshapi.repositories.entity.GenericEntity;
+import com.projectsem3.rooshapi.repositories.interfaces.Repository;
 import com.projectsem3.rooshapi.util.ApplicationLogger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
-public abstract class GenericRepository<T extends GenericClass<T>, T1 extends GenericDatalayer<E>, E extends GenericEntity, C extends GenericConverter<T, E>> implements com.projectsem3.rooshapi.repositories.Repository<T> {
+public abstract class GenericRepository<T extends GenericClass<T>, T1 extends GenericDatalayer<E>, E extends GenericEntity, C extends GenericConverter<T, E>> implements Repository<T> {
     protected T1 dataLayer;
     protected Logger logger = ApplicationLogger.GetLogger();
     protected C converter;
