@@ -22,4 +22,15 @@ public class Office implements GenericEntity{
     private String country;
     @OneToMany
     private List<User> users;
+
+    public Office(UUID id, String phoneNumber, String street, String streetNumber, String zipCode, String city, String country, List<User> users) {
+        this.id = id;
+        this.phoneNumber = phoneNumber;
+        this.street = street;
+        this.streetNumber = streetNumber;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.country = country;
+        this.users = users;
+    }
 }

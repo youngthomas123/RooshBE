@@ -23,6 +23,17 @@ public class Office implements GenericClass<Office> {
 
     }
 
+    public Office(String phoneNumber, String street, String streetNumber, String zipCode, String city, String country) {
+        this.id = UUID.randomUUID();
+        this.phoneNumber = phoneNumber;
+        this.street = street;
+        this.streetNumber = streetNumber;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.country = country;
+        this.users = null;
+    }
+
     public Office(UUID id, String phoneNumber, String street, String streetNumber, String zipCode, String city, String country) {
         this.id = id;
         this.phoneNumber = phoneNumber;
