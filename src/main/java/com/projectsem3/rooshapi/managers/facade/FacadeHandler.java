@@ -1,5 +1,6 @@
 package com.projectsem3.rooshapi.managers.facade;
 
+import com.projectsem3.rooshapi.controllers.dtos.request.ProviderRequest;
 import com.projectsem3.rooshapi.domain.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class FacadeHandler {
 
     public Boolean addItem(Object item, String obj) {
         if(obj.equals("Provider"))
-            return providerFacade.addItem((Provider) item);
+            return providerFacade.addItem((ProviderRequest) item);
 
         return null;
     }
@@ -41,7 +42,7 @@ public class FacadeHandler {
 
     public Boolean updateItem(Object item, String obj) {
         if(obj.equals("Provider"))
-            return providerFacade.updateItem((Provider) item);
+            return providerFacade.updateItem((ProviderRequest) item);
 
         return null;
     }

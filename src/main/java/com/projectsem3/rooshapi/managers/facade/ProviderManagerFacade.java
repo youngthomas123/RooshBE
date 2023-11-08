@@ -1,5 +1,7 @@
 package com.projectsem3.rooshapi.managers.facade;
 
+import com.projectsem3.rooshapi.controllers.dtos.request.ProviderRequest;
+import com.projectsem3.rooshapi.controllers.dtos.request.mappers.ProviderRequestMapper;
 import com.projectsem3.rooshapi.domain.Provider;
 import com.projectsem3.rooshapi.managers.ProviderManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +23,15 @@ public class ProviderManagerFacade {
         return _manager.getItemById(id);
     }
 
-    public Boolean addItem(Provider item) {
-        return _manager.addItem(item);
+    public Boolean addItem(ProviderRequest item) {
+        return _manager.addItem(ProviderRequestMapper.providerRequestToProvider(item));
     }
 
     public Boolean removeItem(UUID item) {
         return _manager.removeItem(item);
     }
 
-    public Boolean updateItem(Provider item) {
-        return _manager.updateItem(item);
+    public Boolean updateItem(ProviderRequest item) {
+        return _manager.updateItem(ProviderRequestMapper.providerRequestToProvider(item));
     }
 }

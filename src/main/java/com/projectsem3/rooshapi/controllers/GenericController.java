@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 @RestController
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-public abstract class GenericController<T extends GenericClass<T>, T1,  T2 extends GenericManager> implements Controller<T, T1> {
+public abstract class GenericController<T, T1,  T2 extends GenericManager> implements Controller<T, T1> {
     protected T2 _manager;
     protected Logger logger = ApplicationLogger.GetLogger();
 
@@ -58,7 +58,7 @@ public abstract class GenericController<T extends GenericClass<T>, T1,  T2 exten
     public Boolean addItem(T item) {
         try{
             facadeHandler.addItem(item, classType);
-            logger.info(MessageFormat.format("Item with id {0} was successfully added", item.getId()));
+            logger.info("Item was successfully added");
             return true;
         }
         catch (Exception ex){
@@ -86,7 +86,7 @@ public abstract class GenericController<T extends GenericClass<T>, T1,  T2 exten
     public Boolean updateItem(T item) {
         try{
             facadeHandler.updateItem(item, classType);
-            logger.info(MessageFormat.format("Item with id {0} was successfully updated", item.getId()));
+            logger.info("Item was successfully updated");
             return true;
         }
         catch (Exception ex){
