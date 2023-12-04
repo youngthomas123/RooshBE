@@ -55,7 +55,7 @@ public abstract class GenericController<T, T1,  T2 extends GenericManager> imple
 
     @Override
     @PostMapping(value = "")
-    public Boolean addItem(T item) {
+    public Boolean addItem(@RequestBody T item) {
         try{
             facadeHandler.addItem(item, classType);
             logger.info("Item was successfully added");
@@ -83,7 +83,7 @@ public abstract class GenericController<T, T1,  T2 extends GenericManager> imple
 
     @Override
     @PutMapping(value = "")
-    public Boolean updateItem(T item) {
+    public Boolean updateItem(@RequestBody T item) {
         try{
             facadeHandler.updateItem(item, classType);
             logger.info("Item was successfully updated");
