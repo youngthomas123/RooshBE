@@ -1,6 +1,7 @@
 package com.projectsem3.rooshapi.managers.facade;
 
 import com.projectsem3.rooshapi.controllers.dtos.request.OfficeRequest;
+import com.projectsem3.rooshapi.controllers.dtos.request.OfficeUpdateRequest;
 import com.projectsem3.rooshapi.controllers.dtos.request.mappers.OfficeRequestMapper;
 import com.projectsem3.rooshapi.domain.Office;
 import com.projectsem3.rooshapi.managers.OfficeManager;
@@ -31,7 +32,7 @@ public class OfficeManagerFacade {
         return _manager.removeItem(item);
     }
 
-    public Boolean updateItem(OfficeRequest item) {
-        return _manager.updateItem(OfficeRequestMapper.officeRequestToOffice(item));
+    public Boolean updateItem(OfficeUpdateRequest item) {
+        return _manager.updateItem(OfficeRequestMapper.officeUpdateRequestToOffice(item));
     }
 }

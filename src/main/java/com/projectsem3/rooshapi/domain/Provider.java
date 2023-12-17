@@ -26,6 +26,13 @@ public class Provider implements GenericClass<Provider> {
         this.offices = null;
     }
 
+    public Provider(UUID id, String name, String logo){
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+        this.offices = null;
+    }
+
     public Provider(UUID id, String name, String logo, List<Office> offices){
         this.id = id;
         this.name = name;

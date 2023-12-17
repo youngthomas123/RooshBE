@@ -1,6 +1,7 @@
 package com.projectsem3.rooshapi.managers.facade;
 
 import com.projectsem3.rooshapi.controllers.dtos.request.ProviderRequest;
+import com.projectsem3.rooshapi.controllers.dtos.request.ProviderUpdateRequest;
 import com.projectsem3.rooshapi.controllers.dtos.request.mappers.ProviderRequestMapper;
 import com.projectsem3.rooshapi.domain.Provider;
 import com.projectsem3.rooshapi.managers.ProviderManager;
@@ -31,7 +32,7 @@ public class ProviderManagerFacade {
         return _manager.removeItem(item);
     }
 
-    public Boolean updateItem(ProviderRequest item) {
-        return _manager.updateItem(ProviderRequestMapper.providerRequestToProvider(item));
+    public Boolean updateItem(ProviderUpdateRequest item) {
+        return _manager.updateItem(ProviderRequestMapper.providerUpdateRequestToProvider(item));
     }
 }

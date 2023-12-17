@@ -5,15 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OfficeRequest {
-    private String phoneNumber;
-    private String street;
-    private String streetNumber;
-    private String zipCode;
-    private String city;
-    private String country;
+public class ProviderUpdateRequest {
+    private UUID id;
+    private String name;
+    private String logo;
 }

@@ -1,7 +1,9 @@
 package com.projectsem3.rooshapi.managers.facade;
 
 import com.projectsem3.rooshapi.controllers.dtos.request.OfficeRequest;
+import com.projectsem3.rooshapi.controllers.dtos.request.OfficeUpdateRequest;
 import com.projectsem3.rooshapi.controllers.dtos.request.ProviderRequest;
+import com.projectsem3.rooshapi.controllers.dtos.request.ProviderUpdateRequest;
 import com.projectsem3.rooshapi.domain.Office;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,9 +57,9 @@ public class FacadeHandler {
 
     public Boolean updateItem(Object item, String obj) {
         if(obj.equals("Provider"))
-            return providerFacade.updateItem((ProviderRequest) item);
+            return providerFacade.updateItem((ProviderUpdateRequest) item);
         if(obj.equals("Office"))
-            return officeFacade.updateItem((OfficeRequest) item);
+            return officeFacade.updateItem((OfficeUpdateRequest) item);
 
         return null;
     }

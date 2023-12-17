@@ -17,8 +17,7 @@ import java.util.logging.Logger;
 
 @RestController
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-public abstract class GenericController<T, T1,  T2 extends GenericManager> implements Controller<T, T1> {
-    protected T2 _manager;
+public abstract class GenericController<T, T1, T2> implements Controller<T, T1, T2> {
     protected Logger logger = ApplicationLogger.GetLogger();
 
     @Autowired
@@ -83,7 +82,7 @@ public abstract class GenericController<T, T1,  T2 extends GenericManager> imple
 
     @Override
     @PutMapping(value = "")
-    public Boolean updateItem(@RequestBody T item) {
+    public Boolean updateItem(@RequestBody T2 item) {
         try{
             facadeHandler.updateItem(item, classType);
             logger.info("Item was successfully updated");
