@@ -2,6 +2,7 @@ package com.projectsem3.rooshapi.controllers;
 
 import com.projectsem3.rooshapi.controllers.dtos.request.AirportRequest;
 
+import com.projectsem3.rooshapi.controllers.dtos.request.UpdateAirportRequest;
 import com.projectsem3.rooshapi.domain.Airport;
 
 import com.projectsem3.rooshapi.managers.AirportManager;
@@ -14,13 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("Airports")
-public class AirportController extends GenericController<AirportRequest, Airport, AirportManager>{
+public class AirportController extends GenericController<AirportRequest, Airport, UpdateAirportRequest>{
     @Autowired
     private AirportManager _manager;
-
-    @Autowired
-    public AirportController(AirportManager airportManager){
-        super._manager = airportManager;
+    public AirportController(){
         super.classType = "Booking";
     }
 }
