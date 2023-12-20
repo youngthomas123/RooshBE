@@ -35,7 +35,7 @@ public class Airport implements GenericClass<Airport>{
         this.latitude = latitude;
     }
     public Airport(String name, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude) {
-
+        this.id = UUID.randomUUID();
         this.name = name;
         this.provider = null;
         this.code = code;
