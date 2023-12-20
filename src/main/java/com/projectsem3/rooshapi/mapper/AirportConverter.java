@@ -24,11 +24,11 @@ public class AirportConverter implements GenericConverter<Airport, com.projectse
     public Airport returnDomainObject(com.projectsem3.rooshapi.repositories.entity.Airport object) {
         ProviderConverter providerConverter = new ProviderConverter();
 
-        return new Airport(object.getId(), object.getName(), providerConverter.returnDomainObject(object.getProvider()), object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude());
+        return new Airport(object.getId(), object.getName(), object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude());
     }
 
     @Override
     public com.projectsem3.rooshapi.repositories.entity.Airport returnEntity(Airport object) {
-        return new com.projectsem3.rooshapi.repositories.entity.Airport(object.getId(), object.getName(), null, object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude());
+        return new com.projectsem3.rooshapi.repositories.entity.Airport(object.getId(), object.getName(), object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude());
     }
 }
