@@ -5,11 +5,32 @@ import com.projectsem3.rooshapi.repositories.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.MessageFormat;
+import java.util.UUID;
+
 @Service
 public class AirportManager extends GenericManager<Airport, AirportRepository>{
     @Autowired
     public AirportManager(AirportRepository airportRepository){
         super._repo = airportRepository;
+    }
+    @Autowired
+    private ProviderManager _providerManager;
+
+    @Override
+    public UUID addItem(Airport item) {
+        try{
+            if (item.getProvider() != null){
+                item.setProvider(_providerManager.getItemById(item.getProvider().getId()));
+            }
+            super._repo.addItem(item);
+            logger.info(MessageFormat.format("Item with id {0} was successfully added", item.getId()));
+            return item.getId();
+        }
+        catch (Exception ex){
+            logger.severe("there was an issue adding item with id " + item.getId() + " with name " + ex.getMessage());
+            return null;
+        }
     }
 
 }

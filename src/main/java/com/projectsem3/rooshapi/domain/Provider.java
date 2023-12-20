@@ -18,6 +18,9 @@ public class Provider implements GenericClass<Provider> {
     public Provider(){
 
     }
+    public Provider(UUID id){
+        this.id = id;
+    }
 
     public Provider(String name, String logo){
         this.id = UUID.randomUUID();
