@@ -28,6 +28,6 @@ public class BookingConverter implements GenericConverter<com.projectsem3.roosha
 
     @Override
     public com.projectsem3.rooshapi.repositories.entity.Booking returnEntity(com.projectsem3.rooshapi.domain.Booking object) {
-        return null;
+        return new Booking(object.getId(), object.getReferenceNumber(), object.getOrderedAt(), object.getDeparture(), object.getVendor(), object.getLanguage(), object.getStatus().toString(), object.getPrice());
     }
 }

@@ -34,6 +34,7 @@ public class Booking implements GenericClass<Booking>{
         this.price = price;
     }
     public Booking( String referenceNumber, LocalDateTime orderedAt, LocalDate departure, String vendor, String language, Status status, Float price) {
+        this.id = UUID.randomUUID();
         this.referenceNumber = referenceNumber;
         this.orderedAt = orderedAt;
         this.departure = departure;

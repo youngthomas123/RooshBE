@@ -1,9 +1,6 @@
 package com.projectsem3.rooshapi.repositories.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,12 +15,10 @@ import java.util.UUID;
 public class Booking implements GenericEntity{
     @Id
     private UUID id;
+    @Column(name = "reference_number")
     private String referenceNumber;
     private LocalDateTime orderedAt;
     private LocalDate departure;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
     private String vendor;
     private String language;
     private String status;
