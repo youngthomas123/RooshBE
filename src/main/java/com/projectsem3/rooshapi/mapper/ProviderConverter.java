@@ -26,6 +26,8 @@ public class ProviderConverter implements GenericConverter<Provider, com.project
 
     @Override
     public Provider returnDomainObject(com.projectsem3.rooshapi.repositories.entity.Provider object) {
+        if (object.getOffices().isEmpty())
+            return new Provider(object.getId(), object.getName(), object.getLogo(), null);
         return new Provider(object.getId(), object.getName(), object.getLogo(), officeConverter.returnDomainList(object.getOffices()));
     }
 
