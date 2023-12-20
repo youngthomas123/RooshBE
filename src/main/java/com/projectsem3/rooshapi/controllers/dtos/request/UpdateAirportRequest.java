@@ -15,4 +15,5 @@ public class UpdateAirportRequest {
     private String country;
     private Integer longtitude;
     private Integer latitude;
+    private Integer terminal;
 }

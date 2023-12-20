@@ -28,4 +28,5 @@ public class Airport implements GenericEntity{
     private String country;
     private Integer longtitude;
     private Integer latitude;
+    private Integer terminal;
 }

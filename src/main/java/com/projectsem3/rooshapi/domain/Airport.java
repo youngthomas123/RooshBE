@@ -20,8 +20,9 @@ public class Airport implements GenericClass<Airport>{
     private String country;
     private Integer longtitude;
     private Integer latitude;
+    private Integer terminal;
 
-    public Airport(UUID id, String name, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude) {
+    public Airport(UUID id, String name, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude, Integer terminal) {
         this.id = id;
         this.name = name;
         this.provider = null;
@@ -33,8 +34,9 @@ public class Airport implements GenericClass<Airport>{
         this.country = country;
         this.longtitude = longtitude;
         this.latitude = latitude;
+        this.terminal = terminal;
     }
-    public Airport(String name,Provider provider, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude) {
+    public Airport(String name,Provider provider, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude, Integer terminal) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.provider = provider;
@@ -46,6 +48,7 @@ public class Airport implements GenericClass<Airport>{
         this.country = country;
         this.longtitude = longtitude;
         this.latitude = latitude;
+        this.terminal = terminal;
     }
     @Override
     public Boolean update(Airport source) {
@@ -59,6 +62,7 @@ public class Airport implements GenericClass<Airport>{
         this.country = source.getCountry();
         this.longtitude = source.getLongtitude();
         this.latitude = source.getLatitude();
+        this.terminal = source.getTerminal();
 
         return true;
     }

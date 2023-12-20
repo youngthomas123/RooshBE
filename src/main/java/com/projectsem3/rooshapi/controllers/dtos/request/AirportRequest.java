@@ -13,5 +13,6 @@ public class AirportRequest {
     private String country;
     private Integer longtitude;
     private Integer latitude;
+    private Integer terminal;
     private String providerId;
 }
