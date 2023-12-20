@@ -17,6 +17,8 @@ public class Provider implements GenericEntity{
     private String name;
     private String logo;
     @OneToMany
+    private List<Airport> airports;
+    @OneToMany
     private List<Office> offices;
 
     public Provider(UUID id, String name, String logo, List<Office> offices) {
