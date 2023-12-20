@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface Controller<T, T1, T2>{
     public List<T1> getItems();
     public T1 getItemById(UUID id);
-    public Boolean addItem(T item);
+    public UUID addItem(T item);
     public Boolean removeItem(UUID id);
     public Boolean updateItem(T2 item);
 }

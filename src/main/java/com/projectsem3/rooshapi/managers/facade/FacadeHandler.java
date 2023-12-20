@@ -46,7 +46,7 @@ public class FacadeHandler {
         return null;
     }
 
-    public Boolean addItem(Object item, String obj) {
+    public UUID addItem(Object item, String obj) {
         if(obj.equals("Provider"))
             return providerFacade.addItem((ProviderRequest) item);
         if(obj.equals("Office"))

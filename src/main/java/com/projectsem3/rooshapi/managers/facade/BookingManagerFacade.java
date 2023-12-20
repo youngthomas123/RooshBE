@@ -25,7 +25,7 @@ public class BookingManagerFacade {
         return _manager.getItemById(id);
     }
 
-    public Boolean addItem(BookingRequest item) {
+    public UUID addItem(BookingRequest item) {
         return _manager.addItem(BookingRequestMapper.bookingRequestToBooking(item));
     }
 

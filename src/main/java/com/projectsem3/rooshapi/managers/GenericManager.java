@@ -43,15 +43,15 @@ public abstract class GenericManager<T extends GenericClass<T>, T1 extends Gener
     }
 
     @Override
-    public Boolean addItem(T item) {
+    public UUID addItem(T item) {
         try{
             _repo.addItem(item);
             logger.info(MessageFormat.format("Item with id {0} was successfully added", item.getId()));
-            return true;
+            return item.getId();
         }
         catch (Exception ex){
             logger.severe("there was an issue adding item with id " + item.getId() + " with name " + ex.getMessage());
-            return false;
+            return null;
         }
     }
 

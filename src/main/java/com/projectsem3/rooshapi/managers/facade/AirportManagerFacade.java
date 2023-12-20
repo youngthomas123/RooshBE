@@ -29,7 +29,7 @@ public class AirportManagerFacade {
         return _manager.getItemById(id);
     }
 
-    public Boolean addItem(AirportRequest item) {
+    public UUID addItem(AirportRequest item) {
         return _manager.addItem(AirportRequestMapper.airportRequestToAirport(item));
     }
 
