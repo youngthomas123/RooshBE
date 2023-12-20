@@ -19,6 +19,6 @@ public class AirportController extends GenericController<AirportRequest, Airport
     @Autowired
     private AirportManager _manager;
     public AirportController(){
-        super.classType = "Booking";
+        super.classType = "Airport";
     }
 }
