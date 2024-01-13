@@ -17,10 +17,6 @@ public class Airport implements GenericEntity{
     @Id
     private UUID id;
     private String name;
-
-    @ManyToOne
-    private Provider provider;
-
     private String code;
     private String streetname;
     private int streetnumber;

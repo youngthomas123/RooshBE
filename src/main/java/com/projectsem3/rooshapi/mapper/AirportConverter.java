@@ -22,19 +22,12 @@ public class AirportConverter implements GenericConverter<Airport, com.projectse
 
     @Override
     public Airport returnDomainObject(com.projectsem3.rooshapi.repositories.entity.Airport object) {
-        ProviderConverter providerConverter = new ProviderConverter();
-        if (object.getProvider() == null){
-            return new Airport(object.getId(), object.getName(), null, object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude(), object.getTerminal());
-        }
-        return new Airport(object.getId(), object.getName(), providerConverter.returnDomainObject(object.getProvider()), object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude(), object.getTerminal());
+        return new Airport(object.getId(), object.getName(), object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude(), object.getTerminal());
     }
 
     @Override
     public com.projectsem3.rooshapi.repositories.entity.Airport returnEntity(Airport object) {
-        if (object.getProvider() == null){
-            return new com.projectsem3.rooshapi.repositories.entity.Airport(object.getId(), object.getName(), null, object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude(), object.getTerminal());
-        }
         ProviderConverter providerConverter = new ProviderConverter();
-        return new com.projectsem3.rooshapi.repositories.entity.Airport(object.getId(), object.getName(), providerConverter.returnEntity(object.getProvider()), object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude(), object.getTerminal());
+        return new com.projectsem3.rooshapi.repositories.entity.Airport(object.getId(), object.getName(), object.getCode(), object.getStreetname(), object.getStreetnumber(), object.getZipCode(), object.getCity(), object.getCountry(), object.getLongtitude(), object.getLatitude(), object.getTerminal());
     }
 }

@@ -6,12 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Airport implements GenericClass<Airport>{
     private UUID id;
     private String name;
-    private Provider provider;
     private String code;
     private String streetname;
     private int streetnumber;
@@ -25,7 +23,6 @@ public class Airport implements GenericClass<Airport>{
     public Airport(UUID id, String name, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude, Integer terminal) {
         this.id = id;
         this.name = name;
-        this.provider = null;
         this.code = code;
         this.streetname = streetname;
         this.streetnumber = streetnumber;
@@ -36,10 +33,9 @@ public class Airport implements GenericClass<Airport>{
         this.latitude = latitude;
         this.terminal = terminal;
     }
-    public Airport(String name,Provider provider, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude, Integer terminal) {
+    public Airport(String name, String code, String streetname, int streetnumber, String zipCode, String city, String country, Integer longtitude, Integer latitude, Integer terminal) {
         this.id = UUID.randomUUID();
         this.name = name;
-        this.provider = provider;
         this.code = code;
         this.streetname = streetname;
         this.streetnumber = streetnumber;
@@ -53,7 +49,6 @@ public class Airport implements GenericClass<Airport>{
     @Override
     public Boolean update(Airport source) {
         this.name = source.getName();
-        this.provider = source.getProvider();
         this.code = source.getCode();
         this.streetname = source.getStreetname();
         this.streetnumber = source.getStreetnumber();

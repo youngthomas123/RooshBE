@@ -20,9 +20,6 @@ public class AirportManager extends GenericManager<Airport, AirportRepository>{
     @Override
     public UUID addItem(Airport item) {
         try{
-            if (item.getProvider() != null){
-                item.setProvider(_providerManager.getItemById(item.getProvider().getId()));
-            }
             super._repo.addItem(item);
             logger.info(MessageFormat.format("Item with id {0} was successfully added", item.getId()));
             return item.getId();

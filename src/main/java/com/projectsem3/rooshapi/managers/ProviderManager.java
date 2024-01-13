@@ -1,5 +1,6 @@
 package com.projectsem3.rooshapi.managers;
 
+import com.projectsem3.rooshapi.domain.Airport;
 import com.projectsem3.rooshapi.domain.Office;
 import com.projectsem3.rooshapi.domain.Provider;
 import com.projectsem3.rooshapi.repositories.ProviderRepository;
@@ -23,6 +24,20 @@ public class ProviderManager extends GenericManager<Provider, ProviderRepository
     public Boolean addOfficeToProvider(UUID providerId, UUID officeId){
         try {
             super._repo.addOfficeToProvider(providerId, officeId);
+            return true;
+        }
+        catch (Exception ex){
+            return false;
+        }
+    }
+
+    public List<Airport> getAirportsByProviderId(UUID id){
+        return super._repo.getAirportsByProviderId(id);
+    }
+
+    public Boolean addAirportToProvider(UUID providerId, UUID airportId){
+        try {
+            super._repo.addAirportToProvider(providerId, airportId);
             return true;
         }
         catch (Exception ex){

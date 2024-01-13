@@ -17,7 +17,14 @@ public class ProviderManagerFacade {
     private ProviderManager _manager;
 
     public List<Provider> getItems() {
-        return _manager.getItems();
+        List<Provider> providers = _manager.getItems();
+
+        for(Provider provider : providers){
+            provider.setOffices(_manager.getOfficesByProviderId(provider.getId()));
+            provider.setAirports(_manager.getAirportsByProviderId(provider.getId()));
+        }
+
+        return providers;
     }
 
     public Provider getItemById(UUID id) {
