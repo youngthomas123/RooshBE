@@ -1,5 +1,7 @@
 package com.projectsem3.rooshapi.controllers;
 
+import com.projectsem3.rooshapi.controllers.dtos.request.AirportRequest;
+import com.projectsem3.rooshapi.controllers.dtos.request.OfficeRequest;
 import com.projectsem3.rooshapi.controllers.dtos.request.ProviderRequest;
 import com.projectsem3.rooshapi.controllers.dtos.request.ProviderUpdateRequest;
 import com.projectsem3.rooshapi.domain.Airport;
@@ -28,10 +30,10 @@ public class ProviderController extends GenericController<ProviderRequest, Provi
         return _manager.getOfficesByProviderId(id);
     }
 
-    @PostMapping(value = "/{providerId}/offices/add/{officeId}")
-    public Boolean addOfficeToProvider(@PathVariable UUID providerId, @PathVariable UUID officeId){
+    @PostMapping(value = "/{providerId}/offices")
+    public Boolean addOfficeToProvider(@PathVariable UUID providerId, @RequestBody OfficeRequest item){
         try {
-            _manager.addOfficeToProvider(providerId, officeId);
+            _manager.addOfficeToProvider(providerId, item);
             return true;
         }
         catch (Exception ex){
@@ -44,10 +46,10 @@ public class ProviderController extends GenericController<ProviderRequest, Provi
         return _manager.getAirportsByProviderId(id);
     }
 
-    @PostMapping(value = "/{providerId}/airports/add/{airportId}")
-    public Boolean addAirportsToProvider(@PathVariable UUID providerId, @PathVariable UUID airportId){
+    @PostMapping(value = "/{providerId}/airports")
+    public Boolean addAirportsToProvider(@PathVariable UUID providerId, @RequestBody AirportRequest item){
         try {
-            _manager.addAirportToProvider(providerId, airportId);
+            _manager.addAirportToProvider(providerId, item);
             return true;
         }
         catch (Exception ex){

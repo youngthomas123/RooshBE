@@ -14,8 +14,6 @@ public class AirportManager extends GenericManager<Airport, AirportRepository>{
     public AirportManager(AirportRepository airportRepository){
         super._repo = airportRepository;
     }
-    @Autowired
-    private ProviderManager _providerManager;
 
     @Override
     public UUID addItem(Airport item) {
