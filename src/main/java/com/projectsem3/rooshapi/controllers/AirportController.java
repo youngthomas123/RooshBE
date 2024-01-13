@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(maxAge = 3600)
 @RestController
-@RequestMapping("Airports")
+@RequestMapping("airports")
 public class AirportController extends GenericController<AirportRequest, Airport, UpdateAirportRequest>{
     @Autowired
     private AirportManager _manager;
