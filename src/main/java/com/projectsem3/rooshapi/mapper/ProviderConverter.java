@@ -9,15 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ProviderConverter implements GenericConverter<Provider, com.projectsem3.rooshapi.repositories.entity.Provider>{
+public class ProviderConverter implements GenericConverter<Provider, com.projectsem3.rooshapi.repositories.entity.Provider> {
 
     @Autowired
     private OfficeConverter officeConverter;
+    @Autowired
+    private AirportConverter airportConverter;
 
     @Override
     public List<Provider> returnDomainList(List<com.projectsem3.rooshapi.repositories.entity.Provider> objects) {
         List<Provider> providers = new ArrayList();
-        for(com.projectsem3.rooshapi.repositories.entity.Provider provider : objects){
+        for (com.projectsem3.rooshapi.repositories.entity.Provider provider : objects) {
             providers.add(returnDomainObject(provider));
         }
 
@@ -26,7 +28,14 @@ public class ProviderConverter implements GenericConverter<Provider, com.project
 
     @Override
     public Provider returnDomainObject(com.projectsem3.rooshapi.repositories.entity.Provider object) {
-        return new Provider(object.getId(), object.getName(), object.getLogo(), officeConverter.returnDomainList(object.getOffices()));
+        Provider provider = new Provider(object.getId(), object.getName(), object.getLogo());
+
+        if(!object.getOffices().isEmpty())
+            provider.setOffices(officeConverter.returnDomainList(object.getOffices()));
+        if(!object.getAirports().isEmpty())
+            provider.setAirports(airportConverter.returnDomainList(object.getAirports()));
+
+        return provider;
     }
 
     @Override

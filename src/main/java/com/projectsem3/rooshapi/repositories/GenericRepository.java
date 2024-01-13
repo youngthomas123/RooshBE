@@ -46,16 +46,16 @@ public abstract class GenericRepository<T extends GenericClass<T>, T1 extends Ge
 
     @Transactional
     @Override
-    public Boolean addItem(T item) {
+    public UUID addItem(T item) {
         try{
             dataLayer.save(converter.returnEntity(item));
             logger.info(MessageFormat.format("Item with id {0} was successfully saved", item.getId()));
 
-            return true;
+            return item.getId();
         }
         catch (Exception ex){
             logger.severe("An error has occurred: " + ex.getMessage());
-            return false;
+            return null;
         }
     }
 

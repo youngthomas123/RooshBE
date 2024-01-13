@@ -24,7 +24,7 @@ public class OfficeManagerFacade {
         return _manager.getItemById(id);
     }
 
-    public Boolean addItem(OfficeRequest item) {
+    public UUID addItem(OfficeRequest item) {
         return _manager.addItem(OfficeRequestMapper.officeRequestToOffice(item));
     }
 

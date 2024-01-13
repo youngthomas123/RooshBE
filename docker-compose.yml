@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: ./
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/rooshdatabase
+      SPRING_DATASOURCE_USERNAME: docker
+      SPRING_DATASOURCE_PASSWORD: docker
+      JWT_SECRET: asdfSFS34wfsdfsdfSDSD32dfsddDDerQSNCK34SOWEK5354fdgdf4
+    depends_on:
+      - database

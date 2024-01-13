@@ -54,15 +54,15 @@ public abstract class GenericController<T, T1, T2> implements Controller<T, T1, 
 
     @Override
     @PostMapping(value = "")
-    public Boolean addItem(@RequestBody T item) {
+    public UUID addItem(@RequestBody T item) {
         try{
-            facadeHandler.addItem(item, classType);
+            UUID id = facadeHandler.addItem(item, classType);
             logger.info("Item was successfully added");
-            return true;
+            return id;
         }
         catch (Exception ex){
             logger.info(MessageFormat.format("An error has occurred with the message {0}", ex.getMessage()));
-            return false;
+            return null;
         }
     }
 

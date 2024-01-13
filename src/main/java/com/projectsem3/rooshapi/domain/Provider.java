@@ -12,11 +12,15 @@ public class Provider implements GenericClass<Provider> {
     private UUID id;
     private String name;
     private String logo;
+    private List<Airport> airports;
     private List<Office> offices;
 
     // region Boilerplate
     public Provider(){
 
+    }
+    public Provider(UUID id){
+        this.id = id;
     }
 
     public Provider(String name, String logo){
@@ -24,6 +28,7 @@ public class Provider implements GenericClass<Provider> {
         this.name = name;
         this.logo = logo;
         this.offices = null;
+        this.airports = null;
     }
 
     public Provider(UUID id, String name, String logo){
@@ -31,6 +36,7 @@ public class Provider implements GenericClass<Provider> {
         this.name = name;
         this.logo = logo;
         this.offices = null;
+        this.airports = null;
     }
 
     public Provider(UUID id, String name, String logo, List<Office> offices){
@@ -38,6 +44,13 @@ public class Provider implements GenericClass<Provider> {
         this.name = name;
         this.logo = logo;
         this.offices = offices;
+    }
+    public Provider(UUID id, String name, String logo, List<Office> offices, List<Airport> airports){
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+        this.offices = offices;
+        this.airports = airports;
     }
 
     @Override

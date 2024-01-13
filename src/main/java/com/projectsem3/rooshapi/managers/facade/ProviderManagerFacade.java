@@ -24,7 +24,7 @@ public class ProviderManagerFacade {
         return _manager.getItemById(id);
     }
 
-    public Boolean addItem(ProviderRequest item) {
+    public UUID addItem(ProviderRequest item) {
         return _manager.addItem(ProviderRequestMapper.providerRequestToProvider(item));
     }
 
