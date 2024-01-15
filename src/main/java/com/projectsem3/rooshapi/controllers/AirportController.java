@@ -8,9 +8,10 @@ import com.projectsem3.rooshapi.domain.Airport;
 import com.projectsem3.rooshapi.managers.AirportManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(maxAge = 3600)
 @RestController
@@ -20,5 +21,22 @@ public class AirportController extends GenericController<AirportRequest, Airport
     private AirportManager _manager;
     public AirportController(){
         super.classType = "Airport";
+    }
+
+    @GetMapping(value = "/search")
+    public List<Airport> airportSearch(@RequestParam String city, @RequestParam String country){
+        List<Airport> airports = _manager.getItems();
+        if(!city.isEmpty())
+            airports = airports
+                    .stream()
+                    .filter(a -> a.getCity().toLowerCase().contains(city.toLowerCase()))
+                    .collect(Collectors.toList());
+        if(!country.isEmpty())
+            airports = airports
+                    .stream()
+                    .filter(a -> a.getCountry().toLowerCase().contains(country.toLowerCase()))
+                    .collect(Collectors.toList());
+
+        return airports;
     }
 }
