@@ -28,7 +28,7 @@ public class BookingController extends GenericController<BookingRequest, Booking
         if (!referenceNumber.isEmpty())
             bookings = bookings
                     .stream()
-                    .filter(b -> b.getReferenceNumber().toLowerCase().contains(referenceNumber.toLowerCase()))
+                    .filter(b -> b.getReferenceNumber().toLowerCase().equals(referenceNumber.toLowerCase()))
                     .collect(Collectors.toList());
         if(!vendor.isEmpty())
             bookings = bookings
@@ -37,5 +37,6 @@ public class BookingController extends GenericController<BookingRequest, Booking
                     .collect(Collectors.toList());
 
         return bookings;
+
     }
 }
